@@ -8,7 +8,7 @@ import java.util.List;
 
 
 
-public class TipoSegoroDao {
+public class TipoSeguroDao {
 	private static final String readallTSeguros = "SELECT idTipo,descripcion FROM tiposeguros;";
 
 	public List<TipoSeguro> readAllTiposSeguros()
