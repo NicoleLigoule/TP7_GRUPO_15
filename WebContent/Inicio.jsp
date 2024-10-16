@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<nav>
+    <a href="Inicio.jsp">Inicio</a>
+    <a href="AgregarSeguro.jsp">Agregar Seguro</a>
+    <a href="ListarSeguros.jsp">Listar Seguros</a>
+	</nav>
+
+
 	<h1><b>Soy la pagina de inicio</b></h1>
 </body>
 </html>
