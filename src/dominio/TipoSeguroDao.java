@@ -37,7 +37,6 @@ public class TipoSeguroDao {
 	{
 		int ideSeguro = resultSet.getInt("idTipo");
 		String descripcion = resultSet.getString("descripcion");
-		int idTipo = resultSet.getInt("idTipo");
 		return new TipoSeguro(ideSeguro,descripcion);
 
 	}
