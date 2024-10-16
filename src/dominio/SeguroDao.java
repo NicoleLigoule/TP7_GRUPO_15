@@ -12,9 +12,10 @@ import java.util.List;
 
 
 public class SeguroDao {
-	private static final String insert ="INSERT INTO seguros (descripcion,idTipo,costoContratacion,costoAsegurado) VALUES (?,?,?,?)";
-	private static final String readall = "SELECT idSeguro, descripcion, idTipo,costoContratacion,costoAsegurado FROM seguros;";
-	
+	private static final String insert ="INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES (?,?,?,?)";
+	private static final String readall = "SELECT * FROM seguros";
+	// private static final String readall = "SELECT idSeguro, descripcion, idTipo,costoContratacion,costoAsegurado FROM seguros;";
+	// private static final String listarDescripcionSeguro = "SELECT s.idSeguro, s.descripcion AS descripcionSeguro, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
 	
 	
 	
@@ -49,11 +50,11 @@ public class SeguroDao {
 		return isInsertExitoso;
 	}
 	
-	public List<Seguro> readAll()
+	public ArrayList<Seguro> readAll()
 	{
 		PreparedStatement statement;
 		ResultSet resultSet; //Guarda el resultado de la query
-		ArrayList<Seguro> personas = new ArrayList<Seguro>();
+		ArrayList<Seguro> seguro = new ArrayList<Seguro>();
 		Conexion conexion = Conexion.getConexion();
 		try 
 		{
@@ -61,16 +62,18 @@ public class SeguroDao {
 			resultSet = statement.executeQuery();
 			while(resultSet.next())
 			{
-				personas.add(getPersona(resultSet));
+				seguro.add(getSeguro(resultSet));
 			}
 		} 
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}
-		return personas;
+		return seguro;
 	}
-	private Seguro getPersona(ResultSet resultSet) throws SQLException
+	
+	
+	private Seguro getSeguro(ResultSet resultSet) throws SQLException
 	{
 		int ideSeguro = resultSet.getInt("idSeguro");
 		String descripcion = resultSet.getString("descripcion");

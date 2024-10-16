@@ -9,9 +9,9 @@ import java.util.List;
 
 
 public class TipoSeguroDao {
-	private static final String readallTSeguros = "SELECT idTipo,descripcion FROM tiposeguros;";
+	private static final String readallTSeguros = "SELECT idTipo, descripcion FROM tiposeguros;";
 
-	public List<TipoSeguro> readAllTiposSeguros()
+	public ArrayList<TipoSeguro> readAllTiposSeguros()
 	{
 		PreparedStatement statement;
 		ResultSet resultSet; //Guarda el resultado de la query
