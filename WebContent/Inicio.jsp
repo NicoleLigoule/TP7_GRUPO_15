@@ -9,7 +9,8 @@
 <body>
 	<nav>
     <a href="Inicio.jsp">Inicio</a>
-    <a href="AgregarSeguro.jsp">Agregar Seguro</a>
+    <a href="servletsAgregarSeguro?Param=0">Agregar Seguro</a>
+   
     <!--  <a href="ListarSeguros.jsp">Listar Seguros</a>-->
      <a href="servletSeguro?Param=1">Listar Seguros</a>
     
