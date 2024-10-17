@@ -32,8 +32,10 @@ private static final String UltimoID = "SELECT MAX(idSeguro) AS ultimoId FROM se
 			resultSet = statement.executeQuery();
 			while(resultSet.next())
 			{
-				Id = resultSet.getString("ultimoId");
-			}
+				int CambioId= resultSet.getInt("ultimoId");
+				CambioId=CambioId+1;
+				Id =String.valueOf(CambioId);
+						}
 		} 
 		catch (SQLException e) 
 		{
