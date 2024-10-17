@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dominio.Seguro;
 import dominio.SeguroDao;
+import dominio.TipoSeguro;
+import dominio.TipoSeguroDao;
 
 /**
  * Servlet implementation class servletsAgregarSeguro
@@ -32,14 +34,19 @@ public class servletsAgregarSeguro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    if (request.getParameter("parameter") == "0") {
-	        SeguroDao tip = new SeguroDao();
+	    if (request.getParameter("parameter") != null) {
+	        TipoSeguroDao tip = new TipoSeguroDao();
+	        SeguroDao ID= new SeguroDao();
+	        String id; 
+	        id=ID.UltimoId();
+	        request.setAttribute("ID", id);
+	        ArrayList<TipoSeguro> tipos = tip.readAllTiposSeguros();
+
+	        request.setAttribute("Tipos", tipos);
 	        
-	        ArrayList<Seguro> Tipos = tip.readAll();
+	        
 
-	        request.setAttribute("Tipos", Tipos);
-
-	        RequestDispatcher rd = request.getRequestDispatcher("/AgregarSeguro.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("AgregarSeguro.jsp");   
 	        rd.forward(request, response);
 	    }
 	}

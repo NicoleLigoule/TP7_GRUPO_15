@@ -16,11 +16,32 @@ public class SeguroDao {
 	//private static final String readall = "SELECT * FROM seguros";
 
 private static final String readall = "SELECT s.idSeguro, s.descripcion, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
-
+private static final String UltimoID = "SELECT MAX(idSeguro) AS ultimoId FROM seguros;";
 	// private static final String readall = "SELECT idSeguro, descripcion, idTipo,costoContratacion,costoAsegurado FROM seguros;";
 	// private static final String listarDescripcionSeguro = "SELECT s.idSeguro, s.descripcion AS descripcionSeguro, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
 	
-	
+	public String UltimoId() {
+		String Id="0";
+		
+		PreparedStatement statement;
+		ResultSet resultSet; //Guarda el resultado de la query
+		Conexion conexion = Conexion.getConexion();
+		try 
+		{
+			statement = conexion.getSQLConexion().prepareStatement(UltimoID);
+			resultSet = statement.executeQuery();
+			while(resultSet.next())
+			{
+				Id = resultSet.getString("ultimoId");
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return Id;
+	}
 	
 	public boolean insert(Seguro sucu)
 	{
