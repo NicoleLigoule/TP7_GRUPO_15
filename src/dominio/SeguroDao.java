@@ -13,7 +13,10 @@ import java.util.List;
 
 public class SeguroDao {
 	private static final String insert ="INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES (?,?,?,?)";
-	private static final String readall = "SELECT * FROM seguros";
+	//private static final String readall = "SELECT * FROM seguros";
+
+private static final String readall = "SELECT s.idSeguro, s.descripcion, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
+
 	// private static final String readall = "SELECT idSeguro, descripcion, idTipo,costoContratacion,costoAsegurado FROM seguros;";
 	// private static final String listarDescripcionSeguro = "SELECT s.idSeguro, s.descripcion AS descripcionSeguro, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
 	
@@ -75,12 +78,14 @@ public class SeguroDao {
 	
 	private Seguro getSeguro(ResultSet resultSet) throws SQLException
 	{
-		int ideSeguro = resultSet.getInt("idSeguro");
-		String descripcion = resultSet.getString("descripcion");
-		int idTipo = resultSet.getInt("idTipo");
-		double costoContratacion =resultSet.getBigDecimal("costoContratacion").doubleValue();
-		double costoAsegurado= resultSet.getBigDecimal("costoAsegurado").doubleValue();
-		return new Seguro(ideSeguro,descripcion,idTipo,costoContratacion,costoAsegurado);
-
+	    int ideSeguro = resultSet.getInt("idSeguro");
+	    String descripcion = resultSet.getString("descripcion");
+	    String descripcionTipoSeguro = resultSet.getString("descripcionTipoSeguro");
+	    double costoContratacion = resultSet.getBigDecimal("costoContratacion").doubleValue();
+	    double costoAsegurado = resultSet.getBigDecimal("costoAsegurado").doubleValue();
+	    
+	    Seguro seguro = new Seguro(ideSeguro, descripcion, descripcionTipoSeguro, costoContratacion, costoAsegurado);  
+	    return seguro;
 	}
+
 }

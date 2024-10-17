@@ -46,7 +46,7 @@
 		    <form name="formSeguros">
 				<td><%=seg.getIdSeguro() %></td> 
 				<td><%=seg.getDescripcion() %></td>   
-				<td><%=seg.getTipoSeguro() %></td>
+				<td><%=seg.getTipoSeguroDescripcion() %></td>
 				<td><%=seg.getCostoContratacion() %></td>   
 				<td><%=seg.getCostoAsegurado() %></td>
 			</form> 

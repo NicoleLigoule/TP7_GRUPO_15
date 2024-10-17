@@ -7,17 +7,18 @@ public class Seguro {
     private int tipoSeguro;
     private double costoContratacion;
     private double costoAsegurado;
-
+    private String tipoSeguroDescripcion;
     public Seguro() {
     }
 
-    public Seguro(int idSeguro, String descripcion, int tipoSeguro, double costoContratacion, double costoAsegurado) {
+    public Seguro(int idSeguro, String descripcion, String descripcionTipoSeguro, double costoContratacion, double costoAsegurado) {
         this.idSeguro = idSeguro;
         this.descripcion = descripcion;
-        this.tipoSeguro = tipoSeguro;
+        this.tipoSeguroDescripcion = descripcionTipoSeguro;  
         this.costoContratacion = costoContratacion;
         this.costoAsegurado = costoAsegurado;
     }
+
 
     public int getIdSeguro() {
         return idSeguro;
@@ -57,5 +58,13 @@ public class Seguro {
 
     public void setCostoAsegurado(double costoAsegurado) {
         this.costoAsegurado = costoAsegurado;
+    }
+    
+    public String getTipoSeguroDescripcion() {
+        return tipoSeguroDescripcion;
+    }
+
+    public void setTipoSeguroDescripcion(String tipoSeguroDescripcion) {
+        this.tipoSeguroDescripcion = tipoSeguroDescripcion;
     }
 }

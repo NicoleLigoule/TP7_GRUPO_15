@@ -43,7 +43,7 @@ public class servletSeguro extends HttpServlet {
 		{
 
 			SeguroDao sdao = new SeguroDao();
-		   // TipoSeguroDao tsdao = new TipoSeguroDao();
+		  // TipoSeguroDao tsdao = new TipoSeguroDao();
 			
             ArrayList<Seguro> listaSeg = sdao.readAll();
            // ArrayList<TipoSeguro> listaTipoSeg = tsdao.readAllTiposSeguros();
