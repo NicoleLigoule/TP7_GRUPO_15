@@ -18,15 +18,25 @@
     
 	</nav>
 	<br>
+	<h1><b>Agregar Seguros</b></h1>
 	<br>
-	<br> <% String ID=" ";
+	<form action="servletSeguro" method="post">
+  <div class="form-group">
+       <% String ID=" ";
 	if(request.getAttribute("ID")!=null){
 		 ID=(String)request.getAttribute("ID");
 	}
 	%>
-	Id Seguro: <%=ID%>
+    <label class="form-label">Id Seguro:</label>
+    <span>
+        <%=ID%>
+    </span> 
+  </div>
+	<div class="form-group">
+            <label class="form-label">Descripción:</label>
+            <input type="text" name="descripcion" class="form-field" required />
+    </div>	
 	
-	<br>
     Tipo de Seguros:&nbsp;    
 <select name="tipoSeguro" id="tipoSeguro">
 
