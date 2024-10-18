@@ -100,12 +100,15 @@
         
          <div class="form-group">
             <label class="form-label">Costo contratación:</label>
-            <input type="text" name="costoContratacion" class="form-field" required />
+            <!-- <input type="text" name="costoContratacion" class="form-field" required /> -->
+             <input type="number" name="costoContratacion" class="form-field" step="0.01" min="0" required />
         </div>
 
         <div class="form-group">
             <label class="form-label">Costo Máximo Asegurado:</label>
-            <input type="text" name="costoMaximo" class="form-field" required />
+            <!-- <input type="text" name="costoMaximo" class="form-field" required /> -->
+             <input type="number" name="costoMaximo" class="form-field" step="0.01" min="0" required />
+            
         </div>
 
         <div class="button-group">
