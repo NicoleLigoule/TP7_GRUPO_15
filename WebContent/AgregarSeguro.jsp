@@ -36,9 +36,9 @@
             <label class="form-label">Descripción:</label>
             <input type="text" name="descripcion" class="form-field" required />
     </div>	
-	
-    Tipo de Seguros:&nbsp;    
-<select name="tipoSeguro" id="tipoSeguro">
+	<div class="form-group">
+            <label class="form-label">Tipo de Seguro:</label>
+            <select name="tipoSeguro" id="tipoSeguro" required>
 
             <% 
             
@@ -47,8 +47,7 @@
         	{
         		Tipos = (ArrayList<TipoSeguro>) request.getAttribute("Tipos");
         	}
- // Supongo que esta función devuelve una lista de tipos de seguros
-                
+ 
                 // Iterar sobre la lista y crear los <option> dinámicamente
                 for (TipoSeguro tipo : Tipos) {
             %>
@@ -57,6 +56,9 @@
                 } 
             %>
         </select>
+        </div>
+  
+
    </form>
 </body>
 </html>
