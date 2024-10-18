@@ -14,7 +14,7 @@ public class TipoSeguroDao {
 	public ArrayList<TipoSeguro> readAllTiposSeguros()
 	{
 		PreparedStatement statement;
-		ResultSet resultSet; //Guarda el resultado de la query
+		ResultSet resultSet;
 		ArrayList<TipoSeguro> Tipos = new ArrayList<TipoSeguro>();
 		Conexion conexion = Conexion.getConexion();
 		try 

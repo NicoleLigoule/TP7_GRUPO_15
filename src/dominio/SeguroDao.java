@@ -12,19 +12,15 @@ import java.util.List;
 
 
 public class SeguroDao {
-	private static final String insert ="INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES (?,?,?,?)";
-	//private static final String readall = "SELECT * FROM seguros";
-
+private static final String insert ="INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES (?,?,?,?)";
 private static final String readall = "SELECT s.idSeguro, s.descripcion, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
 private static final String UltimoID = "SELECT MAX(idSeguro) AS ultimoId FROM seguros;";
-	// private static final String readall = "SELECT idSeguro, descripcion, idTipo,costoContratacion,costoAsegurado FROM seguros;";
-	// private static final String listarDescripcionSeguro = "SELECT s.idSeguro, s.descripcion AS descripcionSeguro, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
-	
+		
 	public String UltimoId() {
 		String Id="0";
 		
 		PreparedStatement statement;
-		ResultSet resultSet; //Guarda el resultado de la query
+		ResultSet resultSet; 
 		Conexion conexion = Conexion.getConexion();
 		try 
 		{

@@ -35,19 +35,15 @@ public class servletSeguro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		
 		
 		if(request.getParameter("Param")!=null)
 		{
 
 			SeguroDao sdao = new SeguroDao();
-		  // TipoSeguroDao tsdao = new TipoSeguroDao();
 			
-            ArrayList<Seguro> listaSeg = sdao.readAll();
-           // ArrayList<TipoSeguro> listaTipoSeg = tsdao.readAllTiposSeguros();
-            
+            ArrayList<Seguro> listaSeg = sdao.readAll();            
             
 			request.setAttribute("listaSeguros", listaSeg);
 			RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguros.jsp");   
