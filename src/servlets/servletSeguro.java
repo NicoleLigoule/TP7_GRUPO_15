@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dominio.Seguro;
 import dominio.SeguroDao;
-import dominio.TipoSeguro;
-import dominio.TipoSeguroDao;
+/*import dominio.TipoSeguro;
+import dominio.TipoSeguroDao;*/
 
 
 /**
