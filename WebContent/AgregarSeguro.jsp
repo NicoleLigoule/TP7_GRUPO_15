@@ -64,17 +64,6 @@
 	<h1><b>Agregar Seguros</b></h1>
 	<br>
 	
-	<%
-        String mensajeExito = (String) request.getAttribute("mensajeExito");
-        if (mensajeExito != null) {
-    %>
-        <div>
-            <%= mensajeExito %>
-        </div>
-    <%
-        }
-    %>
-
 	<form action="servletSeguro" method="post">
   <div class="form-group">
        <% String ID=" ";
