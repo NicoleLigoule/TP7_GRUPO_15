@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Agregar Seguro</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -52,14 +52,29 @@
 </head>
 <body>
 	<nav>
-    <a href="Inicio.jsp">Inicio</a>
-    <form action="servletsAgregarSeguro" method="post">
-    <a href="servletSeguro?Param=1">Listar Seguros</a>
-    
+    <a href="Inicio.jsp" style="text-decoration: underline;">Inicio</a>
+    <!-- <form action="servletsAgregarSeguro" method="post"> -->
+    <form action="servletsAgregarSeguro" method="post" style="display: inline;">
+        <button type="submit" style="background: none; border: none; color: #800080; text-decoration: underline; cursor: pointer; padding: 0; font: inherit;">
+        Agregar Seguros</button>
+    <a href="servletSeguro?Param=1" style="text-decoration: underline;">Listar Seguros</a>
 	</nav>
+	
 	<br>
 	<h1><b>Agregar Seguros</b></h1>
 	<br>
+	
+	<%
+        String mensajeExito = (String) request.getAttribute("mensajeExito");
+        if (mensajeExito != null) {
+    %>
+        <div>
+            <%= mensajeExito %>
+        </div>
+    <%
+        }
+    %>
+
 	<form action="servletSeguro" method="post">
   <div class="form-group">
        <% String ID=" ";
@@ -115,7 +130,6 @@
             <input type="submit" name="btnAgregarSeguro" value="Aceptar" />
         </div>
   
-
    </form>
    
    

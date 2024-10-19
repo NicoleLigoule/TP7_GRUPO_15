@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Inicio</title>
 </head>
 <body>
 	<nav>
     <a href="Inicio.jsp">Inicio</a>
-    <a href="servletsAgregarSeguro?parameter=1">Agregar Seguro</a>
+    <a href="servletsAgregarSeguro?parameter=1">Agregar Seguros</a>
    
     <!--  <a href="ListarSeguros.jsp">Listar Seguros</a>-->
      <a href="servletSeguro?Param=1">Listar Seguros</a>

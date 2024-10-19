@@ -51,12 +51,12 @@ public class servletsAgregarSeguro extends HttpServlet {
 
         
         if (insertado) {
+        	//request.setAttribute("correcto", "El seguro se ha agregado correctamente.");
             TipoSeguroDao tip = new TipoSeguroDao();
             SeguroDao ID = new SeguroDao();
             String id = ID.UltimoId();
             request.setAttribute("ID", id);
             request.setAttribute("Tipos", tip.readAllTiposSeguros());
-            request.setAttribute("correcto", "El seguro se ha agregado correctamente.");
             RequestDispatcher rd = request.getRequestDispatcher("AgregarSeguro.jsp");
             rd.forward(request, response); 
         } else {

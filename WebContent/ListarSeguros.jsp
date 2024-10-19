@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Listar Seguros</title>
 </head>
 <body>
 	<nav>
     <a href="Inicio.jsp">Inicio</a>
-    <a href="servletsAgregarSeguro?parameter=1">Agregar Seguro</a>
+    <a href="servletsAgregarSeguro?parameter=1">Agregar Seguros</a>
     <a href="servletSeguro?Param=1">Listar Seguros</a>
     
 	</nav>
@@ -42,13 +42,13 @@
 		for(Seguro seg : listaSeguros) 
 		{
 	%>
-		<tr>  
+		<tr>
 		    <form name="formSeguros">
-				<td><%=seg.getIdSeguro() %></td> 
-				<td><%=seg.getDescripcion() %></td>   
-				<td><%=seg.getTipoSeguroDescripcion() %></td>
-				<td><%=seg.getCostoContratacion() %></td>   
-				<td><%=seg.getCostoAsegurado() %></td>
+				<td style="text-align: center;"><%=seg.getIdSeguro() %></td>  
+				<td style="text-align: center;"><%=seg.getDescripcion() %></td>   
+				<td style="text-align: center;"><%=seg.getTipoSeguroDescripcion() %></td>
+				<td style="text-align: center;"><%=seg.getCostoContratacion() %></td>   
+				<td style="text-align: center;"><%=seg.getCostoAsegurado() %></td>
 			</form> 
 		</tr>
 	<%  } %>
