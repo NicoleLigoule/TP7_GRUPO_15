@@ -1,4 +1,5 @@
 <%@page import="dominio.Seguro"%>
+<%@page import="dominio.TipoSeguro"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -15,7 +16,31 @@
     <a href="servletSeguro?Param=1">Listar Seguros</a>
     
 	</nav>
-
+<div>
+<br><h1><b>"Tipo de seguros de la base de datos"</b></h1><br>
+</div>
+<div>
+	<form action="servletSeguro" method="post">
+		<p>Busqueda por tipo de seguro: 
+			<select name="tipoSeguro" id="tipoSeguro">
+		            <% 
+		        	ArrayList<TipoSeguro> Tipos = null;
+		        	if(request.getAttribute("Tipos")!=null)
+		        	{
+		        		Tipos = (ArrayList<TipoSeguro>) request.getAttribute("Tipos");
+		        	}
+		                // Iterar sobre la lista y crear los <option> dinámicamente
+		                for (TipoSeguro tipo : Tipos) {
+		            %>
+		                <option value="<%= String.valueOf(tipo.getIdTipo()) %>"><%= tipo.getDescripcion() %></option>
+		            <% 
+		                } 
+		            %>
+				</select>
+				<input type="submit" value="Filtrar" name="btnFiltrar">
+		</p>
+	</form>
+</div>
 
 <% 
 	ArrayList<Seguro> listaSeguros = null;

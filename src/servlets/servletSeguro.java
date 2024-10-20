@@ -36,8 +36,21 @@ public class servletSeguro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		TipoSeguroDao tip = new TipoSeguroDao();
+		request.setAttribute("Tipos", tip.readAllTiposSeguros());
 		
-		
+		if(request.getParameter("btnFiltrar")!=null)
+		{
+			SeguroDao sdao = new SeguroDao();
+			
+			int tipoSeguro = Integer.parseInt(request.getParameter("tipoSeguro"));
+            ArrayList<Seguro> listaSeg = sdao.readFiltro(tipoSeguro);            
+            
+			request.setAttribute("listaSeguros", listaSeg);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguros.jsp");   
+	        rd.forward(request, response);
+		}
 		if(request.getParameter("Param")!=null)
 		{
 

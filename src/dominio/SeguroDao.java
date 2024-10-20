@@ -94,6 +94,28 @@ private static final String UltimoID = "SELECT MAX(idSeguro) AS ultimoId FROM se
 		return seguro;
 	}
 	
+	public ArrayList<Seguro> readFiltro(int idTipo)
+	{
+		PreparedStatement statement;
+		ResultSet resultSet; //Guarda el resultado de la query
+		ArrayList<Seguro> seguro = new ArrayList<Seguro>();
+		Conexion conexion = Conexion.getConexion();
+		try 
+		{
+			statement = conexion.getSQLConexion().prepareStatement(readall + " where s.idtipo =" + idTipo);
+			resultSet = statement.executeQuery();
+			while(resultSet.next())
+			{
+				seguro.add(getSeguro(resultSet));
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return seguro;
+	}
+	
 	
 	private Seguro getSeguro(ResultSet resultSet) throws SQLException
 	{
