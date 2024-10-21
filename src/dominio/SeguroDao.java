@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SeguroDao {
 private static final String insert ="INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES (?,?,?,?)";
-private static final String readall = "SELECT s.idSeguro, s.descripcion, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
+private static final String readall = "SELECT s.idSeguro, s.descripcion, t.descripcion AS descripcionTipoSeguro, s.costoContratacion, s.costoAsegurado FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo ORDER BY s.idSeguro ASC";
 private static final String UltimoID = "SELECT MAX(idSeguro) AS ultimoId FROM seguros;";
 		
 	public String UltimoId() {
